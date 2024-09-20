@@ -9,6 +9,28 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        comma_to_semmicolon: comma_to_semmicolon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_TO_SEMMICOLON";
+            bindings = <&kp COMMA>, <&kp SEMICOLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dot_to_colon: dot_to_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_TO_COLON";
+            bindings = <&kp DOT>, <&kp COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -21,10 +43,10 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB     &kp Q  &kp C  &kp O         &kp P      &kp W       &kp J    &kp M      &kp D  &kp EXCLAMATION  &kp Y     &kp BSPC
-&kp ESCAPE  &kp A  &kp S  &kp E         &kp N      &kp F       &kp L    &kp R      &kp T  &kp I            &kp U     &kp ENTER
-&kp LSHFT   &kp Z  &kp X  &kp QUESTION  &kp V      &kp B       &kp DOT  &kp H      &kp G  &kp COMMA        &kp FSLH  &kp RIGHT_SHIFT
-                          &kp LEFT_ALT  &kp LCTRL  &kp LCMD    &mo 1    &kp SPACE  &mo 2
+&kp TAB     &kp Q  &kp C  &kp O         &kp P      &kp W       &kp J          &kp M      &kp D  &kp EXCLAMATION       &kp Y     &kp BSPC
+&kp ESCAPE  &kp A  &kp S  &kp E         &kp N      &kp F       &kp L          &kp R      &kp T  &kp I                 &kp U     &kp ENTER
+&kp LSHFT   &kp Z  &kp X  &kp QUESTION  &kp V      &kp B       &dot_to_colon  &kp H      &kp G  &comma_to_semmicolon  &kp FSLH  &kp RIGHT_SHIFT
+                          &kp LEFT_ALT  &kp LCTRL  &kp LCMD    &mo 1          &kp SPACE  &mo 2
             >;
         };
 
