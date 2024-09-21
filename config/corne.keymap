@@ -85,7 +85,7 @@
                 <&macro_press>,
                 <&kp LEFT_ALT>,
                 <&macro_tap>,
-                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_3 &kp KP_NUMBER_9>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_3 &kp KP_NUMBER_0>,
                 <&macro_release>,
                 <&kp LEFT_ALT>,
                 <&macro_tap>,
@@ -182,6 +182,24 @@
                 <&to 0>;
 
             label = "O_CIRCON";
+            wait-ms = <10>;
+            tap-ms = <5>;
+        };
+
+        mu: mu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_8 &kp KP_NUMBER_1>,
+                <&macro_release>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
+
+            label = "MU";
             wait-ms = <10>;
             tap-ms = <5>;
         };
