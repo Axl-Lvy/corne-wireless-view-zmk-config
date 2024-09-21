@@ -13,7 +13,7 @@
         comma_to_semmicolon: comma_to_semmicolon {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_TO_SEMMICOLON";
-            bindings = <&kp COMMA>, <&kp LS(SEMICOLON)>;
+            bindings = <&kp COMMA>, <&semicolon>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -202,6 +202,14 @@
             label = "MU";
             wait-ms = <10>;
             tap-ms = <5>;
+        };
+
+        semicolon: semicolon {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp SEMI>;
+
+            label = "SEMICOLON";
         };
     };
 
