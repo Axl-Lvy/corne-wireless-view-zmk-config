@@ -32,11 +32,20 @@
     };
 
     macros {
-        a_accent_grave: a_accent_grave {
+        a_accent_circon: a_accent_circon {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none>;
-            label = "A_ACCENT_GRAVE";
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_6>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "A_ACCENT_CIRCON";
+            wait-ms = <10>;
+            tap-ms = <5>;
         };
     };
 
