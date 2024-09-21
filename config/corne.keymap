@@ -29,6 +29,16 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        spec1_to_exclamation: spec1_to_exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SPEC1_TO_EXCLAMATION";
+            bindings = <&to 4>, <&kp EXCL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     macros {
@@ -41,7 +51,9 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_6>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "A_CIRCON";
             wait-ms = <10>;
@@ -57,7 +69,9 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_4>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "A_GRAVE";
             wait-ms = <10>;
@@ -73,7 +87,9 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_3 &kp KP_NUMBER_9>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "AE";
             wait-ms = <10>;
@@ -89,7 +105,9 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_3 &kp KP_NUMBER_3>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "E_AIGUE";
             wait-ms = <10>;
@@ -105,7 +123,9 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_3 &kp KP_NUMBER_2>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "E_GRAVE";
             wait-ms = <10>;
@@ -121,7 +141,9 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_3 &kp KP_NUMBER_4>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "E_CIRCON";
             wait-ms = <10>;
@@ -137,7 +159,9 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_5 &kp KP_N6>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "OE";
             wait-ms = <10>;
@@ -153,7 +177,9 @@
                 <&macro_tap>,
                 <&kp KP_NUMBER_0 &kp KP_N2 &kp KP_NUMBER_4 &kp KP_NUMBER_4>,
                 <&macro_release>,
-                <&kp LEFT_ALT>;
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "O_CIRCON";
             wait-ms = <10>;
@@ -173,9 +199,9 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB     &kp Q  &kp C  &kp O         &kp P      &kp W       &kp J          &kp M      &kp D  &kp EXCLAMATION       &kp Y     &kp BSPC
-&kp ESCAPE  &kp A  &kp S  &kp E         &kp N      &kp F       &kp L          &kp R      &kp T  &kp I                 &kp U     &kp ENTER
-&kp LSHFT   &kp Z  &kp X  &kp QUESTION  &kp V      &kp B       &dot_to_colon  &kp H      &kp G  &comma_to_semmicolon  &kp FSLH  &kp RIGHT_SHIFT
+&kp TAB     &kp Q  &kp C  &kp O         &kp P      &kp W       &kp J          &kp M      &kp D  &spec1_to_exclamation  &kp Y     &kp BSPC
+&kp ESCAPE  &kp A  &kp S  &kp E         &kp N      &kp F       &kp L          &kp R      &kp T  &kp I                  &kp U     &kp ENTER
+&kp LSHFT   &kp Z  &kp X  &kp QUESTION  &kp V      &kp B       &dot_to_colon  &kp H      &kp G  &comma_to_semmicolon   &kp FSLH  &kp RIGHT_SHIFT
                           &kp LEFT_ALT  &kp LCTRL  &kp LCMD    &mo 1          &kp SPACE  &mo 2
             >;
         };
@@ -209,12 +235,13 @@
             >;
         };
 
-        layer_4 {
+        spec_1 {
+            display-name = "Base";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&kp TAB     &a_circon  &kp C     &oe           &o_circon  &kp W       &kp J          &kp M      &kp D  &kp EXCLAMATION       &kp Y     &kp BSPC
+&kp ESCAPE  &a_grave   &e_aigue  &e_grave      &e_circon  &kp F       &kp L          &kp R      &kp T  &kp I                 &kp U     &kp ENTER
+&kp LSHFT   &ae        &kp X     &kp QUESTION  &kp V      &kp B       &dot_to_colon  &kp H      &kp G  &comma_to_semmicolon  &kp FSLH  &kp RIGHT_SHIFT
+                                 &kp LEFT_ALT  &kp LCTRL  &kp LCMD    &mo 1          &kp SPACE  &mo 2
             >;
         };
     };
