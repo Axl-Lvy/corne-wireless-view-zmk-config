@@ -13,11 +13,10 @@
         comma_to_semmicolon: comma_to_semmicolon {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_TO_SEMMICOLON";
-            bindings = <&kp COMMA>, <&semicolon>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         dot_to_colon: dot_to_colon {
@@ -27,7 +26,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         spec1_to_exclamation: spec1_to_exclamation {
@@ -37,7 +35,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
